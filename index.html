@@ -1,118 +1,144 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <title>REDLINE ROLEPLAY</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://kit.fontawesome.com/41ddfa8847.js" crossorigin="anonymous"></script>
-</head>
-<style>
-  body {
-    background-image: url('bg.jpg');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-  }
-  nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(to right, );
-    padding: 1rem;
-}
-
-nav a {
-    color: #fff;
-    text-decoration: none;
-    padding: 1rem;
-    transition: all 0.3s ease;
-}
-
-nav a:hover {
-    background: #fff;
-    color: #000;
-}
-
-/* Ikonky (použitie Font Awesome alebo vlastných SVG)*/
-.fas {
-    margin-right: 0.5rem;
-}
-
+ <head>
+  <title>
+   REDLINE ROLEPLAY
+  </title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <style>
+   body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: white;
+            text-align: center;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #1a1a1a;
+        }
+        .navbar .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .navbar .nav-links {
+            display: flex;
+            justify-content: center;
+            flex-grow: 1;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+        }
+        .navbar a:hover {
+            color: #ff0000;
+        }
+        .navbar .active {
+            color: #ff0000;
+        }
+        .navbar .discord {
+            background-color: #007bff;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+        .navbar .login {
+            background-color: #ff0000;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+        .content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: calc(100vh - 80px);
+            padding: 20px;
+        }
+        .content .text {
+            max-width: 600px;
+        }
+        .content .text h1 {
+            font-size: 48px;
+            color: #ff0000;
+        }
+        .content .text h1 span {
+            color: white;
+        }
+        .content .text p {
+            font-size: 18px;
+            margin: 20px 0;
+        }
+        .content .image {
+            margin-left: 50px;
+        }
+        .content .image img {
+            max-width: 100%;
+            height: auto;
+        }
+        .footer {
+            padding: 20px;
+            background-color: #1a1a1a;
+            font-size: 14px;
+        }
   </style>
-<body>
- 
-    <nav class="flex justify-between items-center px-10 py-5 relative">
-        <a class="font-black text-xl" style="color: white;" href="">REDLINE ROLEPLAY</a>
-      
-        <div class="hidden sm:flex gap-16" style="color: white;">
-          <ul class="flex gap-10 items-center">
-            <li>
-              <a href=""><i class="fa-solid fa-house"></i> Domů</a>
-            </li>
-            <li>
-              <a href=""><i class="fa-solid fa-scroll"></i> Pravidla</a>
-            </li>
-            <li>
-              <a href=""><i class="fa-solid fa-people-group"></i> Tým</a>
-            </li>
-            <li>
-              <a href=""><i class="fa-solid fa-shop"></i> Obchod</a>
-            </li>
-          </ul>
-      
-          <button class="bg-blue-700 text-white py-2 px-5"><i class="fa-brands fa-discord"></i> Discord</button>
-        </div>
-      
-        <button id="menu_btn" class="w-10 sm:hidden">
-          <svg id="menu_bars" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
-          </svg>
-          
-          <svg id="menu_close" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-x hidden" viewBox="0 0 16 16">
-        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
-      </svg>
-        </button>
-      
-        <!-- mobile menu -->
-        <div id="mobile_menu" class="absolute top-full bg-gray-100 right-10 left-10 hidden">
-          <div class="flex flex-col gap-10 p-5 sm:hidden">
-            <ul class="flex flex-col gap-2 items-center text-center">
-              <li class="w-full">
-                <a href=""><i class="fa-solid fa-house"></i> Domů</a>
-              </li>
-              <li class="w-full">
-                <a class="py-5 block" href=""><i class="fa-solid fa-scroll"></i> Pravidla</a>
-              </li>
-              <li class="w-full">
-                <a class="py-5 block" href=""><i class="fa-solid fa-people-group"></i>  Tým</a>
-              </li>
-              <li class="w-full">
-                <a class="py-5 block" href=""><i class="fa-solid fa-shop"></i> Obchod</a>
-              </li>
-            </ul>
-      
-            <button class="bg-blue-700 text-white py-2 px-5"><i class="fa-brands fa-discord"></i>  Discord</button>
-          </div>
-        </div>
-      </nav>
-<Br>
-
-<section class="bg-transparent">
-  <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
-      <div class="mr-auto place-self-center lg:col-span-7">
-          <h1 class="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl text-white"><p style="color: red;">REDLINE ROLEPLAY</p></h1>
-          <p class="max-w-2xl mb-6 text-white lg:mb-8 md:text-lg lg:text-xl text-red-500">RDRM je FiveM projekt, který se snaží zaměřit především na česko slovenskou komunitu. Tvoříme příběhy v naší oblíbené hře Grand Theft Auto V. Neváhej podpořit server připojením.</p>
-
-      </div>
-      <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
-          <img src="./npcavatar.png" alt="REDLINE ROLEPLAY">
-      </div>                
+ </head>
+ <body>
+  <div class="navbar">
+   <div class="logo">
+    <i class="fas fa-gamepad"></i> REDLINE ROLEPLAY
+   </div>
+   <div class="nav-links">
+    <a class="active" href="#">
+     <i class="fas fa-home"></i> DOMŮ
+    </a>
+    <a href="#">
+     <i class="fas fa-book"></i> PRAVIDLA
+    </a>
+    <a href="#">
+     <i class="fas fa-users"></i> TÝM
+    </a>
+    <a href="#">
+     <i class="fas fa-store"></i> OBCHOD
+    </a>
+    <a href="#">
+     <i class="fas fa-info-circle"></i> O NÁS
+    </a>
+   </div>
+   <div>
+    <a class="discord" href="#">
+     <i class="fab fa-discord"></i> DISCORD
+    </a>
+    <a class="login" href="#">
+     <i class="fas fa-sign-in-alt"></i> LOGIN
+    </a>
+   </div>
   </div>
-</section>
-<footer class=" rounded-lg shadow  m-4">
-<hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-<span class="block text-red-00 sm:text-center dark:text-gray-400">© 2024 <a href="http://redlinerp.com/" class="hover:underline">REDLINE ROLEPLAY</a>. All Rights Reserved.</span>
-</footer>
-</body>
+  <div class="content">
+   <div class="text">
+    <h1>
+     REDLINE
+     <span>
+      ROLEPLAY
+     </span>
+    </h1>
+    <p>
+     RDRM je FiveM projekt, který se snaží zaměřit především na česko slovenskou komunitu.
+     <br/>
+     Tvoříme příběhy v naší oblíbené hře Grand Theft Auto V.
+     <br/>
+     Neváhej podpořit server připojením.
+    </p>
+   </div>
+   <div class="image">
+    <img alt="Michal v gta" height="600" src="./npcavatar.png" width="400"/>
+   </div>
+  </div>
+  <div class="footer">
+   © 2024 REDLINE ROLEPLAY - Code &amp; Design by AnubisSVK
+  </div>
+ </body>
 </html>
